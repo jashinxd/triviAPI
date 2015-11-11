@@ -9,5 +9,19 @@
 {% endblock navlinks %}
 
 {% block body %}
-    
+<div class="row marketing">
+  <div class="col-lg-6">
+
+{% for movie in firstTopMovies %}
+<h4>{{movie}}</h4>
+{% endfor %}
+</div>
+  <div class="col-lg-6">
+
+{% for movie in secondTopMovies %}
+<h4>{{movie}}</h4>
+{% endfor %}
+
+</div>
+</div>
 {% endblock body %}
