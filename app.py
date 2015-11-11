@@ -11,7 +11,7 @@ def index():
 def quiz():
     return render_template("quiz.html")
 
-#@app.route("/quiz/<movie>")
+@app.route("/quiz/<movie>")
 
 if __name__ == "__main__":
    app.debug = True
