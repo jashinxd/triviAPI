@@ -9,11 +9,8 @@
 {% endblock navlinks %}
 
 {% block body %}
-<div class="row marketing">
 
-<center>
-  <h3>Can you name these actors?</h3>
-  <form method="POST">
+{% if status="giveup" %}
   <table>
     <tr>
       <td><b>Actor</b></td>
@@ -21,16 +18,15 @@
     </tr>
     {% for i in range (0, 5) %}
     <tr>
-      <td><input type="text" name="name"></td>
+      <td color="red">{{actor[i]}}</td>
       <td>{{character[i]}}</td>
     </tr>
     {% endfor %}
   </table>
-  <input type="submit" name="button" value="Submit">
-  <input type="submit" name="button" value="Give up?">
-  </form>
+{% endif %}
 
-</center>
-</div>
+{% if status="submitted" %}
+  
+{% endif %}
+
 {% endblock body %}
-

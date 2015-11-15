@@ -53,5 +53,7 @@ def specMovie(movietitle):
     
     return render_template("quiz.html", actor=actor, character=character)
 
+
+
 #specMovie("244786")
 
