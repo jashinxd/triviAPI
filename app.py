@@ -1,5 +1,5 @@
-from flask import Flask, render_template, Request
-import urllib2, json
+from flask import Flask, render_template, request
+import urllib2, json, appextended
 
 app = Flask(__name__)
 
@@ -7,34 +7,13 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
     
-@app.route("/quiz")
-def quiz():
-    key = "bb8c8b5dede831baad7b87391d01d20c"
-    uri = "https://api.themoviedb.org/3/movie/top_rated?api_key=%s"
-    url = uri%(key)
-    
-    request = urllib2.urlopen(url)
-    result = request.read()
-    r = json.loads(result)
-
-    topRated = []
-    for item in r['results']:
-        topRated.append(item['title'])
-
-    #solely for aesthetic purposes to separate into two columbs
-    firstHalf = []
-    secondHalf = []
-    count = 0
-    for item in topRated:
-        if count < 10:
-            firstHalf.append(topRated[count])
-        else:
-            secondHalf.append(topRated[count])
-        count += 1
-
-    return render_template("quiz.html", firstTopMovies = firstHalf, secondTopMovies = secondHalf)
-
-#@app.route("/quiz/<movie>")
+@app.route("/quiz", methods=["GET", "POST"])
+@app.route("/quiz/<tag>", methods=["GET", "POST"])
+def quiz(tag="toprated"):
+    if tag == "toprated":
+        return appextended.topRated()
+    else:
+        return appextended.specMovie(tag)
 
 if __name__ == "__main__":
    app.debug = True

@@ -10,21 +10,18 @@
 
 {% block body %}
 <div class="row marketing">
+  <div class="col-lg-6">
 
-<center>
-  <table>
-    <tr>
-      <td><b>Actor</b></td>
-      <td><b>Character</b></td>
-    </tr>
-    {% for i in range (0, 10) %}
-    <tr>
-      <td>{{actor[i]}}</td>
-      <td>{{character[i]}}</td>
-    </tr>
-    {% endfor %}
-  </table>
-</center>
+{% for i in range(0,20) %}
+<h4><a href="/quiz/{{firstIDs[i]}}">{{firstTopMovies[i]}}</a></h4>
+{% endfor %}
+</div>
+  <div class="col-lg-6">
+
+{% for i in range(0,20) %}
+<h4><a href="/quiz/{{secondIDs[i]}}">{{secondTopMovies[i]}}</a></h4>
+{% endfor %}
+
+</div>
 </div>
 {% endblock body %}
-
