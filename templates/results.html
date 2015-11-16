@@ -11,6 +11,9 @@
 {% block body %}
 
 {% if status=="giveup" %}
+<center>
+  <br>
+  <h3> Couldn't guess the actors? </h3>
   <table>
     <tr>
       <td><b>Actor</b></td>
@@ -18,11 +21,12 @@
     </tr>
     {% for i in range (0, 5) %}
     <tr>
-      <td color="red">{{actor[i]}}</td>
+      <td class="incorrect">{{actor[i]}}</td>
       <td>{{character[i]}}</td>
     </tr>
     {% endfor %}
   </table>
+</center>
 {% endif %}
 
 {% if status=="submitted" %}
