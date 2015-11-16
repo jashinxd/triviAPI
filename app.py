@@ -15,17 +15,19 @@ def quiz(tag="toprated"):
         return appextended.specMovie(tag)
 
 
-
 @app.route("/quiz/<tag>", methods=["GET", "POST"])
-def submission():
-    button = request.form['button']
-    print button
-    if button == "Give up?":
-        status = "giveup"
-        return render_template("results.html", status = status)
+def submission(tag):
+    if request.method == "GET": 
+        return appextended.specMovie(tag)
     else:
-        status = "submitted"
-        return render_template("results.html", status = status)
+        button = request.form['button']
+        if button == "Submit":
+            status = "submitted"
+            return render_template("results.html", status = status)
+        else:
+            status = "giveup"
+            return render_template("results.html", status = status)
+
 
 if __name__ == "__main__":
    app.debug = True
