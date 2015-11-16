@@ -8,6 +8,9 @@ td {
   text-align: center;
   padding: 8px;
 }
+.incorrect {
+  color: red;
+}
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
