@@ -33,7 +33,7 @@ def submission(tag):
         
         actor = []
         character = []
-        for i in range (0, 5):
+        for i in range (0, len(cast)):
             actor.append(cast[i]["name"])
             character.append(cast[i]["character"])
 

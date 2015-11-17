@@ -48,7 +48,7 @@ def specMovie(movietitle):
 
     actor = []
     character = []
-    for i in range (0, 5):
+    for i in range (0, len(cast)):
         actor.append(cast[i]["name"])
         character.append(cast[i]["character"])
     
@@ -70,10 +70,10 @@ def results(id):
 
     cast = r["credits"]["cast"]
     actor = []
-    for i in range (0, 5):
+    for i in range (0, len(cast)):
         actor.append(cast[i]["name"])
 
-    for i in range (0, 5):
+    for i in range (0, len(cast)):
         if actor[i] == request.form['name'+str(i)]:
             return True
         else:

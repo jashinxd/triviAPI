@@ -19,12 +19,22 @@
       <td><b>Actor</b></td>
       <td><b>Character</b></td>
     </tr>
-    {% for i in range(0,5) %}
+    {% if character|length > 10 %} 
+    {% for i in range(0, 9) %}
     <tr>
       <td><input type="text" name="name{{i}}"></td>
       <td>{{character[i]}}</td>
     </tr>
     {% endfor %}
+
+    {% else %} 
+    {% for i in range(0, character|length) %}
+    <tr>
+      <td><input type="text" name="name{{i}}"></td>
+      <td>{{character[i]}}</td>
+    </tr>
+    {% endfor %}
+    {% endif %}
   </table>
   <input type="submit" name="button" value="Submit">
   <input type="submit" name="button" value="Give up?">
