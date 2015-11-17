@@ -30,7 +30,29 @@
 {% endif %}
 
 {% if status=="submitted" %}
+<div class="row marketing">
+  <center>
+  <h3> Here are your results! </h3>
+  <table>
+    <tr>
+      <td><b>Actor</b></td>
+      <td><b>Character</b></td>
+    </tr>
+    {% for i in range (0, 5) %}
+    <tr>
 
+      {% if request.form['name'+i|string] == actor[i] %}
+
+
+      <td class="correct">{{actor[i]}}</td>
+      {% else %}
+      <td class="incorrect">{{actor[i]}}</td>
+      {% endif %}
+      <td>{{character[i]}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</center>
 {% endif %}
 
 {% endblock body %}

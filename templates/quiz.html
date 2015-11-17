@@ -21,7 +21,7 @@
     </tr>
     {% for i in range(0,5) %}
     <tr>
-      <td><input type="text" name="name"></td>
+      <td><input type="text" name="name{{i}}"></td>
       <td>{{character[i]}}</td>
     </tr>
     {% endfor %}
